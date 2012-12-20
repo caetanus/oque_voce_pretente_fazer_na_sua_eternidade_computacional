@@ -1,5 +1,5 @@
-oque_voce_pretente_fazer_na_sua_eternidade_computacional
-========================================================
+o que voce pretente fazer na sua eternidade computacional?
+==========================================================
 
 o que você pretende fazer na sua eternidade computacional?
 
