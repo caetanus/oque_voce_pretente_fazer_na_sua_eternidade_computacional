@@ -1,8 +1,9 @@
 \documentclass{beamer}
 \usepackage[utf8]{inputenc}
-\usepackage[portuges,brazilian]{babel}
+\usepackage[brazilian]{babel}
 \usepackage[T1]{fontenc}
 \usetheme{Warsaw}
+\usepackage{listings}
 \title[Performance em Python]{O Fim está próximo, Onde você pretende passar sua eternidade computacional?}
 \author{Marcelo A Caetano -- Titans Group}
 \date{Dec 21, 2012 -- aka the end of the world as we know}
@@ -29,8 +30,77 @@
      \item<3 -> É possível, com o algoritmo certo, reduzir a quantidade de buscas de milhões para dezenas.
     \end{enumerate}
   \end{frame}
-  \begin{frame}{Exemplo Prático}
-   
+  \begin{frame}{Exemplo Prático -- busca binária}
+    Agora imagine buscar o ítem 99 nesta lista incrementalmente.
+  isto mesmo, você realizará 8 buscas para achar um ítem numa lista de 9 ítems.
+  imagine o  mesmo com uma busca de 10 milhões de ítems?
+  \end{frame}
+  \begin{frame}{Programação dinâmica}
+    Como exemplo, veremos os números de fibonacci
+    \lstinputlisting[language=Python]{fibonacci.py}
+  \end{frame}
+  \begin{frame}
+    \begin{block}{complexidade computacional}
+       utilizando python 2.7 num amd x4 de 2.4 ghz, tivemos os tempos:
+
+       para o 20º número de fibonacci: 0.0134699344635
+
+       para o 30º número de fibonacci: 0.625921964645
+
+       para o 40º número de fibonacci: 75.5348958969
+
+    \end{block}
+
+       A complexidade computacional deste código é 
+       $\theta(n^{2})$
+  \end{frame}
+  \begin{frame}{E se usássemos tabelas?}
+    \lstinputlisting[language=Python]{fibonacci_dynamic.py}
+  \end{frame}
+  \begin{frame}
+    \begin{block}
+       Utilizando o mesmo hardware, temos um tempo, quase linear computacional, 
+       
+       apenas adicionando uma simples tabela para guardar resultados antigos.
+
+       Para o 100º número de fibonacci 
+        -- algo que não me atreveria a calcular sem técnicas de programação dinâmica -- 
+        o tempo foi de:  0.000916957855225.
+
+    \end{block}
+    obtendo um tempo quase linear de complexidade computacional de:
+    $\theta(n \lg n)$
+
+  \end{frame}
+  \begin{frame}{Tips and Tricks de Python}
+
+  é melhor:
+
+  \lstinputlisting[language=Python]{return0.py}
+
+  que isto:
+
+  \lstinputlisting[language=Python]{return1.py}
+  \end{frame}
+  \begin{frame}
+  isto:
+  \lstinputlisting[language=Python]{return2.py}
+
+  que isto:
+
+  \lstinputlisting[language=Python]{return3.py}
+
+  \end{frame}
+  \begin{frame}
+
+  e na GRANDE maioria dos casos, isto:
+
+  \lstinputlisting[language=Python]{dict.py}
+
+  que isto:
+
+  \lstinputlisting[language=Python]{dict2.py}
+
   \end{frame}
 
 \end{document}
